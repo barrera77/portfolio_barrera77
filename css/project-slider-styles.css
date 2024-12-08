@@ -1,0 +1,603 @@
+.projects-slider-wrapper {
+  margin-bottom: 3rem;
+  background-image: linear-gradient(90deg, rgba(65, 5, 72, 1) 0%, #291c3a 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: auto;
+  padding: 2rem 0;
+}
+
+.about-my-projects {
+  background-image: linear-gradient(90deg, rgba(65, 5, 72, 1) 0%, #291c3a 100%);
+}
+
+/* Carousel */
+.carousel {
+  width: 85vw;
+  height: 90vh;
+  overflow: visible;
+  position: relative;
+  margin: auto;
+}
+
+.carousel .list .item {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.carousel .list .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.carousel .list .item .content {
+  position: absolute;
+  top: 0;
+  width: 100% !important;
+  height: 100%;
+  padding-top: 3rem;
+  max-width: 80%;
+  left: 45%;
+  transform: translateX(-50%);
+  padding-right: 30%;
+  box-sizing: border-box;
+  color: #fff;
+  text-shadow: 0 5px 10px #0004;
+}
+
+.carousel .list .item .content .author {
+  font-weight: bold;
+  letter-spacing: 5px;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.carousel .title h2 {
+  font-weight: bold;
+  font-size: 3.5em;
+  color: #fff !important;
+}
+
+.carousel .topic h2 {
+  font-weight: bold;
+  font-size: 2.5em;
+  color: #fff !important;
+}
+
+.carousel .desc {
+  width: 65%;
+  color: #fff;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem !important;
+  margin-top: 20px;
+  width: 60%;
+}
+
+.carousel .list .item .content button {
+  font-size: 1em !important;
+  border: none;
+  background-color: #291c3a;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 5px;
+  width: calc(100% / 2);
+  color: #eee;
+}
+
+.btn-see-demo:hover {
+  font-weight: bold !important;
+  background-color: #eee !important;
+  color: #291c3a !important;
+}
+
+.carousel .list .item .content button:nth-child(2) {
+  background-color: #eee;
+  color: #291c3a;
+  border: 1px solid #291c3a;
+}
+
+.carousel .list .item .content button:nth-child(2):hover {
+  background-color: #291c3a;
+  color: #eee;
+  border: none;
+}
+
+/* Thumbnail */
+.thumbnail {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  width: max-content;
+  z-index: 100;
+  display: flex;
+  gap: 20px;
+}
+
+.thumbnail .item {
+  width: 150px;
+  height: 220px;
+  flex-shrink: 0;
+  position: relative;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.thumbnail .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.thumbnail .item .content {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+}
+
+.thumbnail .item .content .title {
+  font-weight: bold;
+  color: rgba(65, 5, 72, 1);
+}
+
+/* Arrows */
+.arrows {
+  position: absolute;
+  bottom: 35%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.arrows button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(151, 41, 247, 1);
+  opacity: 0.6;
+  border: none;
+  font-family: monospace;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.5rem;
+  transition: 0.5s;
+  z-index: 100;
+  position: absolute;
+}
+
+.buttons-container {
+  width: 100%;
+  position: relative;
+}
+
+.btn-prev {
+  left: 45%;
+  cursor: pointer;
+}
+
+.btn-next {
+  right: -5%;
+}
+
+.arrows button:hover {
+  color: rgba(65, 5, 72, 1);
+}
+
+.carousel .list .item:nth-child(1) {
+  z-index: 1;
+}
+
+.carousel .list .item:nth-child(1) .author,
+.carousel .list .item:nth-child(1) .title,
+.carousel .list .item:nth-child(1) .topic,
+.carousel .list .item:nth-child(1) .desc,
+.carousel .list .item:nth-child(1) .buttons {
+  transform: translateY(50px);
+  filter: blur(20px);
+  opacity: 0;
+  animation: showContent 0.5s 1s linear 1 forwards;
+}
+
+@keyframes showContent {
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+.carousel .list .item:nth-child(1) .title {
+  animation-delay: 1.2s;
+}
+
+.carousel .list .item:nth-child(1) .topic {
+  animation-delay: 1.4s;
+}
+
+.carousel .list .item:nth-child(1) .desc {
+  animation-delay: 1.6s;
+}
+
+.carousel .list .item:nth-child(1) .buttons {
+  animation-delay: 1.8s;
+}
+
+/* Effect next click */
+.carousel.next .list .item:nth-child(1) img {
+  width: calc(150px * 0.7); /* Reduce width by 30% */
+  height: calc(220px * 0.7); /* Reduce height by 30% */
+  position: absolute;
+  left: 50%;
+  bottom: 50px;
+  border-radius: 20px;
+  animation: showImage 0.5s linear 1 forwards;
+}
+
+@keyframes showImage {
+  to {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    border-radius: 0;
+  }
+}
+
+.carousel.next .thumbnail .item:nth-last-child(1) {
+  width: 0;
+  overflow: hidden;
+  animation: showThumbnail 0.5s linear 1 forwards;
+}
+
+@keyframes showThumbnail {
+  to {
+    width: 150px;
+  }
+}
+
+.carousel.next .thumbnail {
+  transform: translateX(150px);
+  animation: transformThumbnail 0.5s linear 1 forwards;
+}
+
+@keyframes transformThumbnail {
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Effect prev click */
+.carousel.prev .list .item:nth-child(2) {
+  z-index: 2;
+}
+
+.carousel.prev .list .item img {
+  z-index: 100;
+}
+
+.carousel.prev .list .item:nth-child(2) img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation: outImage 0.5s linear 1 forwards;
+}
+
+@keyframes outImage {
+  to {
+    width: calc(150px * 0.7); /* Reduce width by 30% */
+    height: calc(220px * 0.7); /* Reduce height by 30% */
+    border-radius: 15px;
+    left: 50%;
+    bottom: 50px;
+  }
+}
+
+.carousel.prev .thumbnail .item:nth-child(1) {
+  top: 0;
+  left: 0;
+  z-index: 2; /* Ensure it overlaps other thumbnails */
+  opacity: 0;
+  overflow: hidden;
+  opacity: 0;
+  animation: contentOut 1.5s linear 1 forwards;
+}
+
+.carousel.prev .list .item:nth-child(2) .author,
+.carousel.prev .list .item:nth-child(2) .title,
+.carousel.prev .list .item:nth-child(2) .topic,
+.carousel.prev .list .item:nth-child(2) .desc,
+.carousel.prev .list .item:nth-child(2) .buttons {
+  animation: contentOut 1.5s linear 1 forwards;
+}
+
+@keyframes contentOut {
+  to {
+    transform: translateY(-150px);
+    filter: blur(20px);
+    opacity: 0;
+  }
+}
+
+.carousel.next .arrows button,
+.carousel.prev .arrows button {
+  pointer-events: none;
+}
+
+.time {
+  width: 0%;
+  height: 5px;
+  background-color: #f1683a;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+}
+
+.carousel.next .time,
+.carousel.prev .time {
+  width: 100%;
+  animation: timeRunning 2s linear 1 forwards;
+}
+
+@keyframes timeRunning {
+  to {
+    width: 0;
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 677px) {
+  .carousel .list .item .content {
+    padding-right: 0;
+  }
+
+  .carousel .list .item .content .title {
+    font-size: 30px;
+  }
+
+  .carousel {
+    width: 100vw;
+    height: 50vh;
+    overflow: visible;
+    position: relative;
+    margin: auto;
+  }
+
+  .carousel .list .item .content button {
+    font-size: 10px !important;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  /* Carousel */
+  .carousel .list .item .content {
+    left: 40%;
+    width: 70% !important;
+    max-width: auto;
+  }
+
+  .carousel .list .item .content .author {
+    font-size: 12px;
+    color: #fff;
+  }
+
+  .carousel .title h2 {
+    font-size: 1.75em;
+  }
+
+  .carousel .topic h2 {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #fff !important;
+  }
+
+  .carousel .desc {
+    font-size: 11px;
+    width: 50%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+  }
+
+  .buttons {
+    margin-top: 3rem;
+  }
+
+  /* thumbnail */
+  .thumbnail .item {
+    width: calc(150px * 0.7); /* Reduce width by 30% */
+    height: calc(220px * 0.7); /* Reduce height by 30% */
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .thumbnail .item .content {
+    font-size: 11px;
+  }
+
+  .thumbnail .item .content .title {
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .thumbnail .item .content .desc {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Arrows */
+  .arrows {
+    bottom: 37%;
+  }
+  .btn-prev {
+    cursor: pointer;
+  }
+
+  .btn-next {
+    right: 2%;
+  }
+
+  .carousel .list .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  /* Carousel */
+  .carousel {
+    width: 90vw;
+    height: 50vh;
+  }
+  .carousel .list .item .content {
+    left: 45%;
+    width: 85% !important;
+    max-width: 100%;
+  }
+
+  .carousel .list .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .buttons {
+    margin-top: 3rem;
+    width: 60%;
+  }
+
+  .carousel .list .item .content button {
+    font-size: 10px !important;
+  }
+
+  /* thumbnail */
+  @keyframes outImage {
+    to {
+      width: calc(150px * 0.8); /* Reduce width by 30% */
+      height: calc(220px * 0.8); /* Reduce height by 30% */
+      border-radius: 15px;
+      left: 50%;
+      bottom: 50px;
+    }
+  }
+
+  .thumbnail .item {
+    width: calc(150px * 0.8); /* Reduce width by 30% */
+    height: calc(220px * 0.8); /* Reduce height by 30% */
+  }
+
+  /* Arrows */
+  .arrows {
+    bottom: 40%;
+  }
+
+  .btn-prev {
+    left: 46%;
+  }
+
+  .btn-next {
+    right: -3%;
+  }
+
+  .carousel .title h2 {
+    font-size: 2.5em;
+  }
+
+  .carousel .topic h2 {
+    font-size: 2em;
+  }
+
+  .carousel .desc {
+    font-size: 11px;
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  /* carousel */
+  .carousel {
+    height: 75vh;
+  }
+
+  .buttons {
+    gap: 0.5rem !important;
+    width: 50%;
+  }
+
+  .carousel .list .item .content {
+    top: 5%;
+  }
+
+  .carousel .list .item .content button {
+    font-size: 0.75em !important;
+    border: none;
+    background-color: #291c3a;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 5px;
+    width: calc(100% / 2);
+    color: #eee;
+  }
+
+  .carousel .title h2 {
+    font-size: 3em;
+  }
+
+  .carousel .topic h2 {
+    font-size: 2.25em;
+  }
+
+  .carousel .desc {
+    font-size: 1em;
+    width: 60%;
+  }
+
+  .buttons {
+    margin-top: 3rem;
+    width: 70%;
+  }
+
+  .carousel .list .item .content button {
+    font-size: 14px !important;
+  }
+
+  /* thumbnail */
+  @keyframes outImage {
+    to {
+      width: 150px;
+      height: 220px;
+      border-radius: 15px;
+      left: 50%;
+      bottom: 50px;
+    }
+  }
+
+  .thumbnail .item {
+    width: 150px;
+    height: 220px;
+  }
+
+  /* Arrows */
+  .arrows {
+    bottom: 30%;
+  }
+
+  .btn-prev {
+    left: 47%;
+  }
+
+  .btn-next {
+    right: -1%;
+  }
+}
